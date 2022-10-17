@@ -1,12 +1,13 @@
 const express = require("express");
-const dotenv = require("dotenv").config();
+
 const server = express();
 const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
-const { urlencoded } = require("express");
-const cors = require("cors");
+/* const { urlencoded } = require("express");
+const dotenv = require("dotenv").config();
+const cors = require("cors"); */
 require('dotenv').config();
 
 
