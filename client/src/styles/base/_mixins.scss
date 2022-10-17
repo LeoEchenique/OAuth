@@ -1,0 +1,19 @@
+
+@mixin fontByTag ($font: Noto Sans, $height, $size: 13px, $color: red, $style: normal,  $align: center, $spacing: -0.035em, $weight: 300 ) {
+    font-family: $font;
+    color: $color;
+    font-style: $style;
+    font-weight: 400;
+    font-size:$size;
+    line-height: $height;
+    text-align: $align;
+    letter-spacing: $spacing ;
+} 
+
+
+@mixin mq( $medida: 700px ){
+
+    @media screen and (max-width: $medida) {
+        @content;
+    }
+}

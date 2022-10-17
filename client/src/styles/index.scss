@@ -1,0 +1,26 @@
+// Actually here you export the UI settings
+
+@import "./base/variables.scss";
+@import "./base/mixins";
+@import "./base/resets";
+@import "./base/btn";
+
+// Also the components      --> al the secundary must start with "_"
+
+@import "./_components/navbar"; // you can export without having to put the "_" but if u you it also works
+@import "./_components/Card";
+@import "./_components/Profile";
+@import "./_components/Profile_edit";
+
+//Also the Screens
+
+
+.App{
+margin: 0px;
+}
+
+body {
+  background: $main; //   --> variable contained on base/variables
+  margin: 0px;
+  padding: 0px;
+}

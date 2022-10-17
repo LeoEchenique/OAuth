@@ -1,0 +1,208 @@
+// Component Name + "_" + Custom name for property
+.navbar_container {
+  /* 
+ background-color: $text-color;  */
+
+  height: 120px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  li {
+    margin-left: 3.2rem;
+    list-style: none;
+    @include fontByTag(
+      $weight: 500,
+      $size: 16px,
+      $height: 16px,
+      $color: $alt-text-color
+    );
+  }
+  .nav_img_div {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+    width: fit-content;
+    height: 3.5rem;
+    overflow: hidden;
+    display: flex;
+    cursor: pointer;
+    img {
+      max-width: 80%;
+      max-height: 100%;
+      border-radius: 8px;
+      padding-right: 10px;
+      margin-right: 10px;
+      border-radius: 8px;
+      &.tog {
+        /*  outline: 2px solid red; */
+        right: -200px;
+        transition: all 0.9s ease-out;
+      }
+    }
+    h1 {
+      align-self: center;
+      @include fontByTag($size: 14px, $height: 16px, $color: $text-color);
+    }
+
+    .nav_drop {
+      margin-top: 12.5px;
+      width: max-content;
+      height: max-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .nav_drop_icon {
+        width: fit-content;
+        height: fit-content;
+        transform: rotate(90deg);
+        &.active {
+          transform: rotateY(180deg);
+          transition: all 1.3s;
+        }
+      }
+      @include mq($medida: $media-nav) {
+        .nav_drop_icon {
+          &.active {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+
+  ul {
+    position: absolute;
+    top: 90px;
+    right: -300px;
+
+    width: 184px;
+    height: 174px;
+    z-index: -1;
+    opacity: 1;
+    transition: all 0.5 ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: space-evenly;
+    margin: 0px;
+    padding: 0px;
+
+    li {
+      /* 
+     outline: 2px solid red; */
+      padding: 0px;
+      margin: 0px;
+      display: flex;
+      align-items: center;
+      gap: -120px;
+      opacity: 0;
+      width: 100%;
+      height: 33.3%;
+      border-radius: 12px;
+      cursor: pointer;
+      img {
+        width: min-content;
+        height: min-content;
+      }
+      &:hover {
+        background-color: #656464;
+      }
+      @include fontByTag(
+        $weight: 500,
+        $size: 14px,
+        $height: 16px,
+        $color: $text-color
+      );
+      img {
+        margin-left: 25px;
+        margin-right: 20px;
+      }
+      &:last-child {
+        border-top: 1px solid $alt-text-color;
+
+        align-items: center;
+      }
+    }
+    &.active {
+      border: 1px solid #e0e0e0;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+
+      li {
+        opacity: 1;
+        transition: all 0.35s;
+      }
+      opacity: 1;
+      right: 40px;
+      top: 100px;
+      transition: all 0.9s ease-in-out;
+    }
+    &.tog {
+      outline: none;
+      right: -200px;
+      transition: all 0.9s ease-out;
+      li {
+        transition: all 0.3s ease-out;
+        opacity: 0.0001;
+      }
+    }
+  }
+  @include mq($medida: $media-extra-large) {
+    margin: auto;
+    width: 100%;
+    ul {
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 16px;
+      align-items: center;
+      &.active {
+        top: 20px;
+        right: 33%;
+        width: fit-content;
+        height: 40%;
+      }
+      &.tog {
+        right: -200px;
+        top: -30px;
+      }
+      li {
+        &:last-child {
+          border-top: none;
+        }
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  @include mq($medida: $media-nav) {
+    .icon {
+      opacity: 0;
+    }
+    .nav_img_div {
+      h1 {
+        display: none;
+      }
+    }
+    ul {
+      position: absolute;
+      flex-direction: column;
+      min-width: 50%;     
+      &.active {
+        height: fit-content;
+        top: 0px;
+      }
+      li {
+        gap: 5px;
+        margin: 7px;
+      }
+    }
+  }
+}

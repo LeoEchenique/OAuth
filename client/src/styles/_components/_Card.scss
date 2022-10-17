@@ -1,0 +1,193 @@
+#card_login {
+  height: 24rem;
+  .card_text {
+    margin-top: 0px;
+    @include mq($media-small) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.card_container {
+  width: 24.563rem;
+  height: 34.625rem;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 8rem;
+  color: $text-color;
+  border: 1px solid $border-main;
+  border-radius: 24px;
+  padding: 4rem;
+  header {
+    opacity: 0;
+  }
+  @include mq($medida: $media-small) {
+    width: 80%;
+    padding: 20px;
+    border: none;
+    padding-bottom: 40px;
+  }
+  @include fontByTag(
+    $weight: 600,
+    $size: 18px,
+    $height: 22px,
+    $color: $text-color,
+    $align: unset
+  );
+
+  .card_text {
+    @include fontByTag(
+      $weight: 400,
+      $size: 18px,
+      $height: 22px,
+      $color: $text-color,
+      $align: unset
+    );
+    @include mq($medida: $media-small) {
+      &:nth-child(2) {
+        margin-bottom: -8px;
+      }
+      &:nth-child(3) {
+        height: 120px;
+        br {
+          display: none;
+        }
+      }
+    }
+    @include mq($medida: $media-extra-small) {
+      &:nth-child(2) {
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+  .card_span {
+    padding-top: 1rem;
+
+    @include fontByTag(
+      $weight: 400,
+      $size: 14px,
+      $height: 19px,
+      $color: $alt-text-color,
+      $align: center
+    );
+  }
+  a {
+    margin-left: 2px;
+    cursor: pointer;
+    color: $bk-btn;
+    text-decoration: underline;
+  }
+  .card_div_links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card_ul {
+    display: flex;
+
+    width: 80%;
+    align-items: flex-start;
+    padding-left: 0px;
+    justify-content: space-between;
+    list-style: none;
+    @include mq($medida: $media-small) {
+      width: 100%;
+      .card_li {
+        padding: 4px;
+        border-radius: 100%;
+        margin-bottom: -20px;
+        img {
+          height: 30px;
+        }
+      }
+    }
+  }
+  .card_li {
+    outline: 1px solid $border-main;
+    padding: 6px;
+    border-radius: 100%;
+  }
+}
+.card_form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  margin-top: 2.166rem;
+  height: 40%;
+  width: 100%;
+
+  .form_input_div {
+    width: 22.25rem;
+    height: 3rem;
+    border: 1px solid $border-main;
+    border-radius: 8px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @include mq($medida: $media-small) {
+      width: 100%;
+    }
+    .form_input {
+      background-color: transparent;
+      border: none;
+      width: 15rem;
+      @include fontByTag(
+        $weight: 400,
+        $size: 18px,
+        $height: 22px,
+        $color: $alt-text-color,
+        $align: unset
+      );
+      height: 100%;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .form_btn {
+    width: 22.25rem;
+    height: 2.375rem;
+    background: $bk-btn;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    @include fontByTag(
+      $weight: 600,
+      $size: 18px,
+      $height: 22px,
+      $color: $text-color,
+      $align: center
+    );
+    &:hover {
+      color: rgb(238, 237, 237);
+      background: $hover-btn;
+      transition: all 0.6s;
+    }
+    @include mq($medida: $media-small) {
+      width: 100%;
+    }
+  }
+  img {
+    padding-right: 20px;
+    padding-left: 4px;
+  }
+  @include mq($medida: $media-small) {
+    width: 100%;
+    margin-top: -0.1rem;
+  }
+}
+.card_footer {
+  text-align: center;
+  width: 44%;
+  margin: auto;
+  color: $text-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
