@@ -63,9 +63,9 @@ module.exports = {
         return new User(
             user.login,
             "Github only recieves single field name",
-            user.id,
             user.avatar_url,
-            email
+            email,
+            user.id
         );
     },
     linkedinUser: async (code) => {
