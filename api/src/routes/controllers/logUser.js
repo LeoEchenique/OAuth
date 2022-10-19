@@ -77,16 +77,6 @@ router.post("/local", async (req, res) => {
     const saltRounds = 10;
     const { name, from, email, password, lastName } = req.query;
 
-
-    // console.log(password, "before encrypt");
-
-
-    let hashedPass = await bcrypt.hash(password, saltRounds).then(hash => hash);    // resolve on hash value
-
-    // console.log(hashedPass, "encrypted")
-    let compare = await bcrypt.compare(password, password).then(result => result) // compare if it is actually the same password and if true means yes it is!
-    //  console.log(compare, "if true they're the same and it should be all ok")
-
     let user = new User({
         firstName: name,
         email,
@@ -95,7 +85,10 @@ router.post("/local", async (req, res) => {
         lastName
     })
     await user.save();
-    console.log(user.FullName)
+
+    let compared = await user.comparePassword(password) // now comparing password is included as a method inside the model of user
+
+
     res.send(user)
 })
 
