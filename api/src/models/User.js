@@ -1,4 +1,4 @@
-
+const bcrypt = require('bcrypt');
 const mongoose = require("mongoose");
 
 // validators:  min-length | max-length
@@ -48,9 +48,18 @@ userSchema.virtual("FullName").get(function () {
     return this.firstName + " " + this.lastName;
 })
 
-userSchema.pre("save", async function () {
+userSchema.pre("save", async function (next) {
+    const saltRounds = 10;
+    const user = this;
+    if (this.isModified("password") || this.isNew) {
+        await bcrypt.hash(user.password, saltRounds).then(hash => user.password = hash)
+            .catch(err => {
+                console.log(err)
+            })
+        next()
+    }
 
+});
 
-})
 
 module.exports = mongoose.model("User", userSchema);
